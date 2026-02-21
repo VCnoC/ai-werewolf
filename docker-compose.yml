@@ -6,8 +6,8 @@ services:
       MYSQL_DATABASE: ai_werewolf
       MYSQL_CHARACTER_SET_SERVER: utf8mb4
       MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
-    ports:
-      - "3306:3306"
+    # ports:
+    #   - "3306:3306"  # 不暴露到宿主机，避免与已有 MySQL 冲突
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:

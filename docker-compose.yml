@@ -1,0 +1,46 @@
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-werewolf123}
+      MYSQL_DATABASE: ai_werewolf
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      WEREWOLF_DB_HOST: mysql
+      WEREWOLF_DB_PORT: 3306
+      WEREWOLF_DB_USER: root
+      WEREWOLF_DB_PASSWORD: ${DB_ROOT_PASSWORD:-werewolf123}
+      WEREWOLF_DB_NAME: ai_werewolf
+      WEREWOLF_JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      WEREWOLF_DEBUG: "false"
+    volumes:
+      - game_data:/app/game_data
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3003:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+  game_data:

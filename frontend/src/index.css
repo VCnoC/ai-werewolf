@@ -1,0 +1,64 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* 黑白色调主题变量 */
+  --color-bg-sidebar: #141414;
+  --color-bg-content: #fafafa;
+  --color-bg-card: #ffffff;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #8c8c8c;
+  --color-accent: #1a1a1a;
+  --color-border: #e8e8e8;
+
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-content);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-text-secondary);
+}
+
+/* 侧边栏样式覆盖 */
+.ant-layout-sider {
+  background: var(--color-bg-sidebar) !important;
+}
+
+.ant-menu-dark {
+  background: var(--color-bg-sidebar) !important;
+}
+
+.ant-layout-sider-trigger {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 思考中脉冲动画 */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

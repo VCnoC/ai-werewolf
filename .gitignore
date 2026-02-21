@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+venv/
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# 环境配置
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# 游戏数据（运行时生成）
+game_data/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+
+# 杂项
+乱七八糟/

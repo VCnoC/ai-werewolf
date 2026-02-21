@@ -30,7 +30,7 @@ import {
   type GameEndData,
   type GameErrorData,
 } from "../services/websocket";
-import { api, type LLMConfigDTO } from "../services/api";
+import { api } from "../services/api";
 import PlayerPanel from "../components/PlayerPanel";
 import ChatBubble from "../components/ChatBubble";
 import JudgeNarration from "../components/JudgeNarration";

@@ -12,7 +12,7 @@
 import { useMemo, useEffect, useRef, useState } from "react";
 import { Collapse, Tabs, Tag, Typography, Empty } from "antd";
 import type { GameLog, NightActionData, PlayerInfo } from "../services/websocket";
-import { groupLogsByRound, type RoundGroup } from "../utils/logGrouper";
+import { groupLogsByRound } from "../utils/logGrouper";
 import {
   CHANNELS,
   getChannelActions,
@@ -61,8 +61,8 @@ export default function TimelinePanel({
   players,
   thinkingPlayers,
   currentRound,
-  currentPhase,
-  sheriff,
+  currentPhase: _currentPhase,
+  sheriff: _sheriff,
   showThinking = true,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
